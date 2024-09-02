@@ -2,8 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const sendButton = document.getElementById('send-button');
     const userInput = document.getElementById('user-input');
     const chatBody = document.getElementById('chat-body');
+    const modelSelect = document.getElementById('model-select');
 
-    if (sendButton && userInput && chatBody) {
+    if (sendButton && userInput && chatBody && modelSelect) {
         sendButton.addEventListener('click', sendMessage);
         userInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
@@ -57,8 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
     function sendMessage() {
         if (isWaitingForResponse) return;
 
-        const userInput = document.getElementById('user-input');
-        const modelSelect = document.getElementById('model-select');
         const message = userInput.value.trim();
         const model = modelSelect.value;
 
@@ -141,4 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
             typingIndicator.remove();
         }
     }
+
+    // Expose startNewChat to global scope
+    window.startNewChat = startNewChat;
 });
