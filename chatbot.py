@@ -89,14 +89,11 @@ def chat():
     if not message or not chat_id or not model_name:
         return jsonify({'error': 'Message, chat_id, and model are required'}), 400
 
-    if chat_id not in chats:
-        chats[chat_id] = []
-
     chatbot = initialize_chatbot(model_name)
-    conversation_history = chats[chat_id] + [{"role": "user", "content": message}]
+    conversation_history = chats.get(chat_id, []) + [{"role": "user", "content": message}]
     response = chat_with_model(chatbot, conversation_history)
 
-    chats[chat_id].append({"role": "assistant", "content": response})
+    chats[chat_id] = conversation_history + [{"role": "assistant", "content": response}]
 
     return jsonify({'response': response})
 
