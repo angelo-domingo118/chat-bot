@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot UI Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-item" onclick="startNewChat()">+ New chat</div>
+            <div id="chat-list"></div>
+        </div>
+        <div class="main-content">
+            <div class="chat-header">
+                <select id="model-select">
+                    <option value="" disabled selected>Select a model</option>
+                    <option value="llama3-8b-8192">llama3-8b-8192</option>
+                    <option value="llama3-70b-8192">llama3-70b-8192</option>
+                    <option value="mixtral-8x7b-32768">mixtral-8x7b-32768</option>
+                    <option value="gemma-7b-it">gemma-7b-it</option>
+                    <option value="gemma2-9b-it">gemma2-9b-it</option>
+                    <option value="llama3-groq-70b-8192-tool-use-preview">llama3-groq-70b-8192-tool-use-preview</option>
+                    <option value="llama3-groq-8b-8192-tool-use-preview">llama3-groq-8b-8192-tool-use-preview</option>
+                    <option value="llama-3.1-70b-versatile">llama-3.1-70b-versatile</option>
+                    <option value="llama-3.1-8b-instant">llama-3.1-8b-instant</option>
+                    <option value="llama-guard-3-8b">llama-guard-3-8b</option>
+                    <option value="llama3-70b-8192">llama3-70b-8192</option>
+                    <option value="gemini-1.5-flash">gemini-1.5-flash</option>
+                    <option value="gemini-1.5-pro">gemini-1.5-pro</option>
+                    <option value="gemini-1.0-pro">gemini-1.0-pro</option>
+                    <option value="gemini-1.5-pro-exp-0801">gemini-1.5-pro-exp-0801</option>
+                    <option value="gemini-1.5-pro-exp-0827">gemini-1.5-pro-exp-0827</option>
+                    <option value="gemini-1.5-flash-exp-0827">gemini-1.5-flash-exp-0827</option>
+                    <option value="gemini-1.5-flash-8b-exp-0827">gemini-1.5-flash-8b-exp-0827</option>
+                </select>
+            </div>
+            <div class="chat-body" id="chat-body"></div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Message Chatbot">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
