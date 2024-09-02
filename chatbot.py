@@ -100,6 +100,10 @@ def chat():
 
     return jsonify({'response': response})
 
+@app.route('/')
+def index():
+    return "Hello, World!"
+
 if __name__ == "__main__":
     import os
     chats = {}
